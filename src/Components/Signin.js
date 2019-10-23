@@ -15,6 +15,7 @@ export default class Signin extends Component {
                         <br /> <br />
                         <button type="submit" value="sign in" className="btn btn-dark"> SIGN IN </button>
                     </form>
+                    
                 </div>
             </Fragment>
         )
