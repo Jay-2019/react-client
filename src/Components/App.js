@@ -7,7 +7,7 @@ import logo from './brand.png'
 import CreateTodo from "./CreateTodo";
 import EditTodo from "./EditTodo";
 import TodoList from "./TodoList";
-// import Signin from './Signin';
+import Signin from './Signin';
 import Signup from './Signup';
 
 class App extends React.Component {
@@ -62,7 +62,7 @@ class App extends React.Component {
           <Route path="/" exact component={TodoList} />
           <Route path="/EditTodo/:id" component={EditTodo} />
           <Route path="/CreateTodo" component={CreateTodo} />
-          {/* <Route path="/sign_in" component={Signin} /> */}
+          <Route path="/sign_in" component={Signin} />
           <Route path="/sign_up" component={Signup} />
 
         </div>
