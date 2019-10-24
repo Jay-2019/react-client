@@ -9,7 +9,7 @@ class CreateTodo extends React.Component {
         Responsible: '',
         Priority: '',
         Completed: 'false'
-      
+
     }
 
     handleDescription = (event) => {
