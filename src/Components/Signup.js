@@ -54,7 +54,10 @@ export default class Signup extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-
+        if (this.state.createPassword !== this.state.confirmPassword) {
+            alert("Create & Confirm Password not Matched");
+            return
+        }
         // send data into database
 
         this.setState({
