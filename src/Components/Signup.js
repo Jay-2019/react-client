@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios';
+// import style from '../style.module.css';
+import defaultImage from './Avatar.jpg';
+import ReactAvatar from 'react-avatar-editor'
 
 export default class Signup extends Component {
 
@@ -11,7 +14,32 @@ export default class Signup extends Component {
         email: '',
         createPassword: '',
         confirmPassword: '',
-        termsAndConditions: 'false',
+        termsAndConditions: false,
+        isUserExist: false,
+
+        // Avtar Properties
+        profileImage: defaultImage,
+        allowZoomOut: true,
+        position: { x: 0.5, y: 0.5 },
+        scale: 0.9,
+        rotate: 0,
+        borderRadius: 0,
+        preview: null,
+        width: 160,
+        height: 160,
+        border: 5
+    }
+
+    handlePositionChange = position => {
+        this.setState({ position })
+    }
+    handleProfileImage = (event) => {
+        let { files } = event.target;
+        this.setState({ profileImage: files[0] })
+    }
+    handleScale = (event) => {
+        const scale = parseFloat(event.target.value)
+        this.setState({ scale })
     }
 
     handleUserName = (event) => {
@@ -49,8 +77,9 @@ export default class Signup extends Component {
     handleTermsAndConditions = (event) => {
         const { id, name } = event.target;
         if (name === id) {
-            this.setState({ termsAndConditions: 'true' });
+            this.setState({ termsAndConditions: !this.state.termsAndConditions });
         }
+        console.log(this.state.termsAndConditions);
     }
 
     handleSubmit = (event) => {
@@ -68,6 +97,9 @@ export default class Signup extends Component {
             createPassword: this.state.createPassword,
             confirmPassword: this.state.confirmPassword,
             termsAndConditions: this.state.termsAndConditions,
+            profileImage: this.state.profileImage,
+            isUserExist: true
+
         }
         // send data into database
         axios.post('http://localhost:4000/todos/sign_up', newUser)
@@ -83,7 +115,10 @@ export default class Signup extends Component {
             email: '',
             createPassword: '',
             confirmPassword: '',
-            termsAndConditions: 'false',
+            termsAndConditions: false,
+            profileImage: defaultImage,
+            signupDate: Date.now,
+            isUserExist: false
 
         });
     }
@@ -93,6 +128,38 @@ export default class Signup extends Component {
             <Fragment>
                 <div className="container-fluid p-3 mb-2  text-dark">
                     <form onSubmit={this.handleSubmit}>
+
+                        {/* Set Profile Image */}
+                        <div>
+                            <ReactAvatar
+                                scale={parseFloat(this.state.scale)}
+                                width={this.state.width}
+                                height={this.state.height}
+                                position={this.state.position}
+                                onPositionChange={this.handlePositionChange}
+                                rotate={parseFloat(this.state.rotate)}
+                                borderRadius={this.state.width / (100 / this.state.borderRadius)}
+                                border={this.state.border}
+                                image={this.state.profileImage}
+                                className="editor-canvas"
+                            />
+                            <br />
+                            {/* Profile Image */}
+                            <input name="profileImage" type="file" onChange={this.handleProfileImage} required />
+                            <br />
+                            {/* Zoom &nbsp; */}
+                            <input
+                                name="scale"
+                                type="range"
+                                onChange={this.handleScale}
+                                min={this.state.allowZoomOut ? '0.1' : '1'}
+                                max="2"
+                                step="0.01"
+                                defaultValue="1"
+                            />
+                        </div>
+
+                        <br />
 
                         <div className="form-group">
                             <input type="text"
@@ -191,7 +258,7 @@ export default class Signup extends Component {
                                 name="termsandconditions"
                                 value="termsandconditions"
                                 // checked={this.state.termsAndConditions.match(true)}
-                                checked={this.state.termsAndConditions === 'true'}
+                                checked={this.state.termsAndConditions === true}
                                 onChange={this.handleTermsAndConditions}
                                 required
                             // 
