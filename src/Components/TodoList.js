@@ -52,6 +52,7 @@ class TodoList extends React.Component {
     todoList = () => {
         return this.state.todos.map((currentTodo, index) => {
             return <Todo todo={currentTodo} key={index} />
+
         });
     }
 

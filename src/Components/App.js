@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
 
-        <div className="container-fluid">
+        <div className="container-fluid ">
 
           {/* TO DO NAVIGATION-BAR... */}
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,8 +26,8 @@ class App extends React.Component {
                 width="63"
                 height="62"
                 className="d-inline-block align-top"
-                alt="todo_app_logo" />
-
+                alt="todo_app_logo"
+              />
             </a>
 
             <Link to="/" className="navbar-brand"> <h2>TODO APPLICATION</h2></Link>
@@ -58,7 +58,7 @@ class App extends React.Component {
               </ul>
             </div>
           </nav>
-          <br />
+          {/* <br /> */}
           <Route path="/" exact component={TodoList} />
           <Route path="/EditTodo/:id" component={EditTodo} />
           <Route path="/CreateTodo" component={CreateTodo} />
