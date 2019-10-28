@@ -1,3 +1,7 @@
 .Completed {
   text-decoration: line-through;
 }
+
+.cardWidth {
+  width: 18rem;
+}
