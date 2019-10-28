@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import axios from 'axios';
 
 export default class Signup extends Component {
 
@@ -58,11 +59,26 @@ export default class Signup extends Component {
             alert("Create & Confirm Password not Matched");
             return
         }
+
+        // Createing newUser OBject...
+        const newUser = {
+            userName: this.state.userName,
+            gender: this.state.gender,
+            email: this.state.email,
+            createPassword: this.state.createPassword,
+            confirmPassword: this.state.confirmPassword,
+            termsAndConditions: this.state.termsAndConditions,
+        }
         // send data into database
+        axios.post('http://localhost:4000/todos/sign_up', newUser)
+            .then((response) => {
+                console.log(response.data);
+                return (response.data);
+            });
+
 
         this.setState({
             userName: '',
-            // lastName: '',
             gender: '',
             email: '',
             createPassword: '',
@@ -75,7 +91,7 @@ export default class Signup extends Component {
     render() {
         return (
             <Fragment>
-                <div className="container-fluid">
+                <div className="container-fluid p-3 mb-2  text-dark">
                     <form onSubmit={this.handleSubmit}>
 
                         <div className="form-group">
@@ -130,9 +146,9 @@ export default class Signup extends Component {
                             </div>
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group ">
                             <input type="email"
-                                className="form-control"
+                                className="form-control "
                                 id="inputEmail"
                                 aria-describedby="emailHelp"
                                 placeholder=" email"
