@@ -127,7 +127,7 @@ export default class Signup extends Component {
         return (
             <Fragment>
                 <div className="container-fluid p-3 mb-2  text-dark">
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
 
                         {/* Set Profile Image */}
                         <div>
