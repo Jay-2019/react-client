@@ -4,10 +4,44 @@ export default class Signup extends Component {
     render() {
         return (
             <Fragment>
+<<<<<<< HEAD
                 <div className="container-fluid">
                     <form enctype="multipart/form-data">
                         <div className="form-group">
                             <input type="text" className="form-control" id="inputFirstName" aria-describedby="firstnameHelp" placeholder="first_name" />
+=======
+                <div className="container-fluid p-3 mb-2  text-dark">
+                    <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
+
+                        {/* Set Profile Image */}
+                        <div>
+                            <ReactAvatar
+                                scale={parseFloat(this.state.scale)}
+                                width={this.state.width}
+                                height={this.state.height}
+                                position={this.state.position}
+                                onPositionChange={this.handlePositionChange}
+                                rotate={parseFloat(this.state.rotate)}
+                                borderRadius={this.state.width / (100 / this.state.borderRadius)}
+                                border={this.state.border}
+                                image={this.state.profileImage}
+                                className="editor-canvas"
+                            />
+                            <br />
+                            {/* Profile Image */}
+                            <input name="profileImage" type="file" onChange={this.handleProfileImage} required />
+                            <br />
+                            {/* Zoom &nbsp; */}
+                            <input
+                                name="scale"
+                                type="range"
+                                onChange={this.handleScale}
+                                min={this.state.allowZoomOut ? '0.1' : '1'}
+                                max="2"
+                                step="0.01"
+                                defaultValue="1"
+                            />
+>>>>>>> signup_feature
                         </div>
                         <div className="form-group">
                             <input type="text" className="form-control" id="inputLastName" aria-describedby="lastnameHelp" placeholder="last_name" />
