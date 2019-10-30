@@ -9,6 +9,7 @@ export default class Signup extends Component {
     state = {
 
         userName: '',
+        // lastName: '',
         gender: '',
         email: '',
         createPassword: '',
@@ -146,7 +147,7 @@ export default class Signup extends Component {
                             {/* Profile Image */}
                             <input name="profileImage" type="file" onChange={this.handleProfileImage} required />
                             <br />
-                            {/* Zoom IN/Out */}
+                            {/* Zoom &nbsp; */}
                             <input
                                 name="scale"
                                 type="range"
