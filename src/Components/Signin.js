@@ -5,8 +5,7 @@ export default class Signin extends Component {
 
     state = {
         email: '',
-        password: '',
-        userProfile: []
+        password: ''
     }
 
     handleEmail = (event) => {
