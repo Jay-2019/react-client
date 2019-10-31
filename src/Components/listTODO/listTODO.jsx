@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 // import style from '../style.module.css';
-
 const Todo = props => (
   <table className="table table-striped table-dark">
     <thead>

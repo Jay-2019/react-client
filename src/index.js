@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import App from './Components/App';
+import App from './components/App';
 
 import * as serviceWorker from './serviceWorker';
 
