@@ -41,7 +41,7 @@ class TodoList extends React.Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/todos/")
+      .get("http://localhost:4000/todos/listTodo")
       .then(response => {
         this.setState({ todos: response.data });
       })

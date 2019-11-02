@@ -1,4 +1,5 @@
 import React from "react";
+// import { browserHistory } from "react-router";
 import { BrowserRouter, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import style from "../style/style.module.css";
@@ -20,12 +21,29 @@ class App extends React.Component {
           {/* TODO NAVIGATION-BAR... */}
           <NavigationBar />
           {/* <br /> */}
-          <Route path="/" exact component={TodoList} />
-          <Route path="/EditTodo/:id" component={EditTodo} />
-          <Route path="/CreateTodo" component={CreateTodo} />
-          <Route path="/sign_in" component={SignIn} />
-          <Route path="/sign_up" component={SignUp} />
-          {/* <Route path="/userProfile" component={UserProfile} /> */}
+
+          <Route exact path="/">
+            <TodoList />
+          </Route>
+
+          <Route path="/EditTodo/:id">
+            <EditTodo />
+          </Route>
+
+          <Route path="/CreateTodo">
+            <CreateTodo />
+          </Route>
+
+          <Route path="/sign_in">
+            <SignIn />
+          </Route>
+
+          <Route path="/sign_up" >
+            <SignUp />
+          </Route>
+          {/* <Route path="/userProfile" >
+            <UserProfile />
+        </Route>*/}
         </div>
       </BrowserRouter>
     );

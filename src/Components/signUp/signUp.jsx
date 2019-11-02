@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 // import style from '../style.module.css';
-// import defaultImage from "../assets/Avatar.jpg";
 import defaultImage from "../../assets/Avatar.jpg";
-// import logo from "./assets/brand.png";
 import ReactAvatar from "react-avatar-editor";
 
 export default class SignUp extends Component {
@@ -100,11 +98,13 @@ export default class SignUp extends Component {
     };
     // send data into database
     axios
-      .post("http://localhost:4000/todos/sign_up", newUser)
+      .post("http://localhost:4000/todos/signUp", newUser)
       .then(response => {
         console.log(response.data);
         return response.data;
-      });
+        
+      })
+      .catch(error => error.message);
 
     this.setState({
       userName: "",
@@ -123,7 +123,7 @@ export default class SignUp extends Component {
     return (
       <Fragment>
         <div className="container-fluid p-3 mb-2  text-dark">
-          <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
+          <form onSubmit={this.handleSubmit} encType="multipart/form-data">
             {/* Set Profile Image */}
             <div>
               <ReactAvatar
