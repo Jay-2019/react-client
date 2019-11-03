@@ -4,34 +4,16 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 // import style from '../style.module.css';
 const Todo = props => (
-  <table className="table table-striped table-dark">
-    <thead>
+ 
       <tr>
-        <th scope="col">Description</th>
-        <th scope="col">Responsible</th>
-
-        <th scope="col">Priority</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        {/* <th scope="row"> {props.todo.Description}</th> */}
         <td>{props.todo.Description}</td>
         <td>{props.todo.Responsible}</td>
-
         <td>{props.todo.Priority}</td>
-
-        {/* <td className={style.Completed ? 'Completed' : ''}>{props.todo.Description}</td>
-                <td className={style.Completed ? 'Completed' : ''}>{props.todo.Responsible}</td>
-                <td className={style.Completed ? 'Completed' : ''}>{props.todo.Priority}</td> */}
-
         <td>
           <Link to={"/EditTodo/" + props.todo._id}>Edit</Link>
         </td>
       </tr>
-    </tbody>
-  </table>
+
 );
 
 class TodoList extends React.Component {
@@ -59,7 +41,17 @@ class TodoList extends React.Component {
       <React.Fragment>
         <h1> TodoList Component</h1>
         <br />
-        {this.todoList()}
+        <table className="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Responsible</th>
+              <th>Priority</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>{this.todoList()}</tbody>
+        </table>
       </React.Fragment>
     );
   }
