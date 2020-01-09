@@ -87,13 +87,13 @@ export default class SignUp extends Component {
 
     // Creating newUser OBject...
     const newUser = {
+      profileImage: this.state.profileImage,
       userName: this.state.userName,
       gender: this.state.gender,
       email: this.state.email,
       createPassword: this.state.createPassword,
       confirmPassword: this.state.confirmPassword,
       termsAndConditions: this.state.termsAndConditions,
-      profileImage: this.state.profileImage,
       isUserExist: true
     };
     // send data into database
@@ -102,7 +102,6 @@ export default class SignUp extends Component {
       .then(response => {
         console.log(response.data);
         return response.data;
-        
       })
       .catch(error => error.message);
 
@@ -123,7 +122,7 @@ export default class SignUp extends Component {
     return (
       <Fragment>
         <div className="container-fluid p-3 mb-2  text-dark">
-          <form onSubmit={this.handleSubmit} encType="multipart/form-data">
+          <form onSubmit={this.handleSubmit}>
             {/* Set Profile Image */}
             <div>
               <ReactAvatar

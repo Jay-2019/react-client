@@ -26,9 +26,10 @@ class App extends React.Component {
             <TodoList />
           </Route>
 
-          <Route path="/EditTodo/:id">
-            <EditTodo />
+          <Route path="/EditTodo/:id" >
+           <EditTodo/>
           </Route>
+          {/* <Route path="/edit/:id" component={EditTodo} /> */}
 
           <Route path="/CreateTodo">
             <CreateTodo />

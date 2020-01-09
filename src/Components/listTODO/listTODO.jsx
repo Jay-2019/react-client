@@ -4,16 +4,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 // import style from '../style.module.css';
 const Todo = props => (
- 
-      <tr>
-        <td>{props.todo.Description}</td>
-        <td>{props.todo.Responsible}</td>
-        <td>{props.todo.Priority}</td>
-        <td>
-          <Link to={"/EditTodo/" + props.todo._id}>Edit</Link>
-        </td>
-      </tr>
-
+  <tr>
+    <td>{props.todo.Description}</td>
+    <td>{props.todo.Responsible}</td>
+    <td>{props.todo.Priority}</td>
+    <td>
+      <Link to={"/EditTodo/" + props.todo._id}>Edit</Link>
+    </td>
+  </tr>
 );
 
 class TodoList extends React.Component {

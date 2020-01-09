@@ -8,9 +8,11 @@ class EditTodo extends React.Component {
     Priority: "",
     Completed: ""
   };
-
+ 
   componentDidMount() {
-    axios("http://localhost:4000/todos/" + this.props.match.params.id)
+    console.log(this.props);
+    axios
+      .get("http://localhost:4000/todos/" + this.props.match.params.id)
       .then(response => {
         this.setState({
           Description: response.data.Description,
@@ -20,6 +22,8 @@ class EditTodo extends React.Component {
         });
       })
       .catch(error => console.log(error.message));
+      console.log(this.props);
+      console.log(this.state.Description);
   }
 
   handleDescription = event => {
