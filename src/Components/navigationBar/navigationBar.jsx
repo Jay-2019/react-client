@@ -44,12 +44,12 @@ export default class NavigationBar extends Component {
           <div className="collapse  navbar-collapse ">
             <ul className="navbar-nav  ml-auto">
               <li className="navbar-item">
-                <Link to="/sign_in" className="nav-link">
+                <Link to="/SignIn" className="nav-link">
                   SIGN IN
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/sign_up" className="nav-link">
+                <Link to="/SignUp" className="nav-link">
                   SIGN UP{" "}
                 </Link>
               </li>

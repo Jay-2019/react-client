@@ -37,7 +37,7 @@ class TodoList extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1> TodoList Component</h1>
+        <h1> Todo List </h1>
         <br />
         <table className="table table-striped table-dark">
           <thead>

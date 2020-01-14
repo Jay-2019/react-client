@@ -6,9 +6,9 @@ class EditTodo extends React.Component {
     Description: "",
     Responsible: "",
     Priority: "",
-    Completed: ""
+    Completed: false
   };
- 
+
   componentDidMount() {
     console.log(this.props);
     axios
@@ -22,8 +22,8 @@ class EditTodo extends React.Component {
         });
       })
       .catch(error => console.log(error.message));
-      console.log(this.props);
-      console.log(this.state.Description);
+    console.log(this.props);
+    console.log(this.state.Description);
   }
 
   handleDescription = event => {
@@ -52,7 +52,7 @@ class EditTodo extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
+    // Create updateTodo Object;
     const updatedTodo = {
       Description: this.state.Description,
       Responsible: this.state.Responsible,

@@ -22,29 +22,29 @@ class App extends React.Component {
           <NavigationBar />
           {/* <br /> */}
 
+
           <Route exact path="/">
             <TodoList />
           </Route>
 
-          <Route path="/EditTodo/:id" >
-           <EditTodo/>
-          </Route>
-          {/* <Route path="/edit/:id" component={EditTodo} /> */}
+          <Route path="/EditTodo/:id" component={EditTodo} />
+
+          {/* <Route path="/Edit/:id">
+           <EditTodo />
+          </Route> */}
 
           <Route path="/CreateTodo">
             <CreateTodo />
           </Route>
 
-          <Route path="/sign_in">
+          <Route path="/SignIn">
             <SignIn />
           </Route>
 
-          <Route path="/sign_up" >
+          <Route path="/SignUp" >
             <SignUp />
           </Route>
-          {/* <Route path="/userProfile" >
-            <UserProfile />
-        </Route>*/}
+
         </div>
       </BrowserRouter>
     );
