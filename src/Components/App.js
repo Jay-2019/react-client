@@ -29,7 +29,7 @@ class App extends React.Component {
 
           <Route path="/EditTodo/:id" component={EditTodo} />
 
-          {/* <Route path="/Edit/:id">
+          {/* <Route path="/EditTodo/:id">
            <EditTodo />
           </Route> */}
 
