@@ -12,18 +12,19 @@ class EditTodo extends React.Component {
   componentDidMount() {
     console.log(this.props);
     axios
-      .get("http://localhost:4000/todos/" + this.props.match.params.id)
+      .get("http://localhost:4000/todos/editTodo/" + this.props.match.params.id)
       .then(response => {
+        console.log(response);
         this.setState({
           Description: response.data.Description,
           Responsible: response.data.Responsible,
           Priority: response.data.Priority,
-          Completed: response.data.Completed
+          Completed: !response.data.Completed
         });
       })
       .catch(error => console.log(error.message));
     console.log(this.props);
-    console.log(this.state.Description);
+    console.log(this.state.Completed);
   }
 
   handleDescription = event => {
@@ -62,7 +63,7 @@ class EditTodo extends React.Component {
     console.log(updatedTodo);
     axios
       .post(
-        "http://localhost:4000/todos/update/" + this.props.match.params.id,
+        "http://localhost:4000/todos/updateTodo/" + this.props.match.params.id,
         updatedTodo
       )
       .then(res => console.log(res.data));

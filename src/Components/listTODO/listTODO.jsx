@@ -3,13 +3,23 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 // import style from '../style.module.css';
+import deleteIcon from "../../assets/trash-2 (1).svg";
+import editIcon from "../../assets/edit (1).svg";
+
 const Todo = props => (
   <tr>
     <td>{props.todo.Description}</td>
     <td>{props.todo.Responsible}</td>
     <td>{props.todo.Priority}</td>
+    <td>{props.todo.Completed === "true" ? "Yes" : "No"}</td>
     <td>
-      <Link to={"/EditTodo/" + props.todo._id}>Edit</Link>
+      <Link to={"/EditTodo/" + props.todo._id}>
+        <img src={editIcon} alt="edit icon" />
+      </Link>
+      &nbsp; &nbsp; &nbsp;
+      <Link to={"/DeleteTodo/" + props.todo._id}>
+        <img src={deleteIcon} alt="delete icon" />
+      </Link>
     </td>
   </tr>
 );
@@ -17,6 +27,15 @@ const Todo = props => (
 class TodoList extends React.Component {
   state = {
     todos: []
+  };
+
+  handleDeleteTodo = id => {
+    axios
+      .post("http://localhost:4000/todos/" + id)
+      .then(response => {
+        this.setState({});
+      })
+      .catch(error => console.log(error.message));
   };
 
   componentDidMount() {
@@ -45,6 +64,7 @@ class TodoList extends React.Component {
               <th>Description</th>
               <th>Responsible</th>
               <th>Priority</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>

@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import CreateTodo from "./createTODO";
 import EditTodo from "./editTODO";
+import DeleteTodo from "./deleteTODO";
 import TodoList from "./listTODO";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
@@ -32,6 +33,8 @@ class App extends React.Component {
           {/* <Route path="/EditTodo/:id">
            <EditTodo />
           </Route> */}
+
+          <Route path="/DeleteTodo/:id" component={DeleteTodo} />
 
           <Route path="/CreateTodo">
             <CreateTodo />

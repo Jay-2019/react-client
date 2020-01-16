@@ -45,7 +45,7 @@ class CreateTodo extends React.Component {
         Priority: this.state.Priority
       };
 
-      axios.post("http://localhost:4000/todos/add", newTodo).then(response => {
+      axios.post("http://localhost:4000/todos/createTodo", newTodo).then(response => {
         console.log(response.data);
         return response.data;
       });

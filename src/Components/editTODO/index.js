@@ -1,4 +1,4 @@
-import EditTodo from './editTODO.jsx';
+import EditTodo from './editTodo.jsx';
 
 
 export default EditTodo;

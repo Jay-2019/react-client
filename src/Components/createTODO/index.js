@@ -1,4 +1,4 @@
-import CreateTodo from './createTODO.jsx';
+import CreateTodo from './createTodo.jsx';
 
 
 export default CreateTodo;
