@@ -29,14 +29,6 @@ class TodoList extends React.Component {
     todos: []
   };
 
-  handleDeleteTodo = id => {
-    axios
-      .post("http://localhost:4000/todos/" + id)
-      .then(response => {
-        this.setState({});
-      })
-      .catch(error => console.log(error.message));
-  };
 
   componentDidMount() {
     axios

@@ -75,7 +75,6 @@ export default class SignUp extends Component {
     if (name === id) {
       this.setState({ termsAndConditions: !this.state.termsAndConditions });
     }
-    console.log(this.state.termsAndConditions);
   };
 
   handleSubmit = event => {
