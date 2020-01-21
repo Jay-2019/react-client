@@ -263,7 +263,11 @@ export default class SignUp extends Component {
                 I agree to the terms and conditions
               </label>
             </div>
-            <button type="submit" value="sign up" className="btn btn-dark">
+            <button
+              type="submit"
+              value="sign up"
+              className="btn btn-dark btn-lg btn-block"
+            >
               SIGN UP
             </button>
           </form>

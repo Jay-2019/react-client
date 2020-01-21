@@ -13,7 +13,6 @@ export default class SignIn extends Component {
     axios
       .get("http://localhost:4000/todos/authentication")
       .then(response => {
-        console.log(response);
         response.data.map(data => {
           return this.setState({
             email: [...this.state.email, data.email],
@@ -75,6 +74,16 @@ export default class SignIn extends Component {
     console.log(this.checkPassword());
     if (this.checkEmail() && this.checkPassword()) {
       window.alert("Congratulations!!! you are Logged-In");
+      axios
+        .get(
+          "http://localhost:4000/todos/currentUser/" +
+            this.state.checkEmail +
+            "/" +
+            this.state.checkPassword
+        )
+        .then(response => this.props.sendLoggedInUserData(response.data))
+        .catch(error => console.log(error));
+      this.setState({ checkEmail: "", checkPassword: "" });
     } else {
       window.alert(" please!!!  Enter Valid Email-ID & Password");
     }
@@ -112,9 +121,11 @@ export default class SignIn extends Component {
               />
             </div>
 
-            <br />
-
-            <button type="submit" value="sign in" className="btn btn-dark">
+            <button
+              type="submit"
+              value="sign in"
+              className="btn btn-dark btn-lg btn-block"
+            >
               SIGN IN
             </button>
           </form>

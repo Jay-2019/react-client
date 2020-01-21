@@ -5,9 +5,9 @@ import logo from "../../assets/brand.png";
 export default class NavigationBar extends Component {
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         {/* TO DO NAVIGATION-BAR... */}
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg  navbar-dark bg-dark">
           <a className="navbar-brand" href="/">
             <img
               src={logo}
@@ -17,11 +17,12 @@ export default class NavigationBar extends Component {
               alt="todo_app_logo"
             />
           </a>
-
-          <Link to="/" className="navbar-brand">
-            {" "}
-            <h2>TODO APPLICATION</h2>
-          </Link>
+          <a className="navbar-brand" href="/">
+            TODO APPLICATION
+          </a>
+          {/* <Link to="/" className="navbar-brand">
+            <h2 className="navbar-brand">TODO APPLICATION</h2>
+          </Link> */}
 
           <div className="collapse  navbar-collapse ">
             <ul className="navbar-nav  mx-auto">

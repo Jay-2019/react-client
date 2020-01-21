@@ -15,6 +15,14 @@ import NavigationBar from "./navigationBar";
 // import UserProfile from './userProfile';
 
 class App extends React.Component {
+  state = {
+    loggedInUserData: {}
+  }
+
+  getLoggedInUserData = (data) => {
+    this.setState({ loggedInUserData: data });
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -41,7 +49,7 @@ class App extends React.Component {
           </Route>
 
           <Route path="/SignIn">
-            <SignIn />
+            <SignIn sendLoggedInUserData={this.getLoggedInUserData} />
           </Route>
 
           <Route path="/SignUp" >

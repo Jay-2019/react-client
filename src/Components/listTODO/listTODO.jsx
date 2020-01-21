@@ -11,7 +11,7 @@ const Todo = props => (
     <td>{props.todo.Description}</td>
     <td>{props.todo.Responsible}</td>
     <td>{props.todo.Priority}</td>
-    <td>{props.todo.Completed === "true" ? "Yes" : "No"}</td>
+    <td>{props.todo.Completed === "true" ? "Completed" : "Incomplete"}</td>
     <td>
       <Link to={"/EditTodo/" + props.todo._id}>
         <img src={editIcon} alt="edit icon" />
@@ -28,7 +28,6 @@ class TodoList extends React.Component {
   state = {
     todos: []
   };
-
 
   componentDidMount() {
     axios
