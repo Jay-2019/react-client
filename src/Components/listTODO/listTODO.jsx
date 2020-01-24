@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import NavigationBar from "../navigationBar/navigationBar";
 // import style from '../style.module.css';
 import deleteIcon from "../../assets/trash-2 (1).svg";
 import editIcon from "../../assets/edit (1).svg";
@@ -47,6 +48,7 @@ class TodoList extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <NavigationBar />
         <h1> Todo List </h1>
         <br />
         <table className="table table-striped table-dark">

@@ -18,7 +18,7 @@ export default class NavigationBar extends Component {
             />
           </a>
           <a className="navbar-brand" href="/">
-            TODO APPLICATION
+            <>MY TODO</>
           </a>
           {/* <Link to="/" className="navbar-brand">
             <h2 className="navbar-brand">TODO APPLICATION</h2>
@@ -27,17 +27,17 @@ export default class NavigationBar extends Component {
           <div className="collapse  navbar-collapse ">
             <ul className="navbar-nav  mx-auto">
               <li className="navbar-item">
-                <Link to="/" className="nav-link">
+                <Link to="/todoList" className="nav-link">
                   |TODO|{" "}
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/CreateTodo" className="nav-link">
+                <Link to="/createTodo" className="nav-link">
                   |CREATE TODO|{" "}
                 </Link>
               </li>
               {/* <li className="navbar-item">
-                  <Link to="/EditTodo" className="nav-link">|EDIT TODO| </Link>
+                  <Link to="/editTodo" className="nav-link">|EDIT TODO| </Link>
                 </li> */}
             </ul>
           </div>
@@ -45,13 +45,8 @@ export default class NavigationBar extends Component {
           <div className="collapse  navbar-collapse ">
             <ul className="navbar-nav  ml-auto">
               <li className="navbar-item">
-                <Link to="/SignIn" className="nav-link">
-                  SIGN IN
-                </Link>
-              </li>
-              <li className="navbar-item">
-                <Link to="/SignUp" className="nav-link">
-                  SIGN UP{" "}
+                <Link to="/signOut" className="nav-link">
+                  SIGN OUT
                 </Link>
               </li>
             </ul>

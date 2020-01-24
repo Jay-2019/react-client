@@ -1,12 +1,15 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
+import style from "../../style/style.module.css";
+import { Redirect } from "react-router-dom";
 
 export default class SignIn extends Component {
   state = {
     email: [],
     confirmPassword: [],
     checkEmail: "",
-    checkPassword: ""
+    checkPassword: "",
+    isUserExist: false
   };
 
   componentDidMount() {
@@ -73,7 +76,7 @@ export default class SignIn extends Component {
     console.log(this.checkEmail());
     console.log(this.checkPassword());
     if (this.checkEmail() && this.checkPassword()) {
-      window.alert("Congratulations!!! you are Logged-In");
+      // window.alert("Congratulations!!! you are Logged-In");
       axios
         .get(
           "http://localhost:4000/todos/currentUser/" +
@@ -83,52 +86,80 @@ export default class SignIn extends Component {
         )
         .then(response => this.props.sendLoggedInUserData(response.data))
         .catch(error => console.log(error));
-      this.setState({ checkEmail: "", checkPassword: "" });
+      this.setState({ checkEmail: "", checkPassword: "", isUserExist: true });
     } else {
       window.alert(" please!!!  Enter Valid Email-ID & Password");
     }
   };
 
   render() {
+    if (this.state.isUserExist) {
+      return <Redirect to={"/userProfile"} />;
+    }
+    // if(isUserDoesNotExist){
+    //   return <Redirect to={"/userProfile"} />;
+    // }
     return (
       <Fragment>
-        <div className="container-fluid">
+        <div className={style.bgImageSignIN}>
           <br />
-          <form onSubmit={this.handleSubmit}>
-            <br />
-            <div className="form-group">
-              <input
-                type="email"
-                className="form-control"
-                id="inputEmail"
-                aria-describedby="emailHelp"
-                placeholder=" email ID"
-                required
-                onChange={this.handleEmail}
-                value={this.state.checkEmail}
-              />
-            </div>
 
-            <div className="form-group">
-              <input
-                type="password"
-                className="form-control"
-                id="inputPassword"
-                placeholder="password"
-                required
-                onChange={this.handlePassword}
-                value={this.state.checkPassword}
-              />
-            </div>
-
-            <button
-              type="submit"
-              value="sign in"
-              className="btn btn-dark btn-lg btn-block"
+          <div className="d-flex justify-content-center">
+            <div
+              className={` card text-white bg-dark text-center  ${style.card}`}
             >
-              SIGN IN
-            </button>
-          </form>
+              <div className="card-header">
+                <h2>Welcome to Your TODO</h2>
+                <br />
+                <h3>Sign In to Continue</h3>
+              </div>
+              <div className={`card-body ${style.cardBody}`}>
+                <form onSubmit={this.handleSubmit}>
+                  <br />
+                  <div className="form-group">
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="inputEmail"
+                      aria-describedby="emailHelp"
+                      placeholder=" email ID"
+                      required
+                      onChange={this.handleEmail}
+                      value={this.state.checkEmail}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="inputPassword"
+                      placeholder="password"
+                      required
+                      onChange={this.handlePassword}
+                      value={this.state.checkPassword}
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    value="sign in"
+                    className="btn btn-dark btn-lg btn-block"
+                  >
+                    SIGN IN
+                  </button>
+                  <p> You are Not Register Please Sign UP</p>
+                  <a
+                    className="btn btn-dark btn-lg btn-block"
+                    href="/signUp"
+                    role="button"
+                  >
+                    SIGN UP
+                  </a>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </Fragment>
     );

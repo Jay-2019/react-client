@@ -1,3 +1,3 @@
-import DeleteTodo from "./deleteTodo"
+import deleteTodo from "./deleteTodo"
 
-export default DeleteTodo;
+export default deleteTodo;

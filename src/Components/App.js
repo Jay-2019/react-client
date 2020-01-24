@@ -3,19 +3,21 @@ import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import style from "../style/style.module.css";
-// import UserProfile from './UserProfile';
 
+import AboutTodo from "./aboutTodo";
 import CreateTodo from "./createTODO";
-import EditTodo from "./editTODO";
-import DeleteTodo from "./deleteTODO";
+import editTodo from "./editTODO";
+import deleteTodo from "./deleteTODO";
 import TodoList from "./listTODO";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
-import NavigationBar from "./navigationBar";
-// import UserProfile from './userProfile';
+
+import IsIncorrectPassword from "./isIncorrectPassword";
+import UserProfile from "./userProfile";
 
 class App extends React.Component {
   state = {
+    isSignIn: false,
     loggedInUserData: {}
   }
 
@@ -27,35 +29,36 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="container-fluid ">
-          {/* TODO NAVIGATION-BAR... */}
-          <NavigationBar />
-          {/* <br /> */}
-
-
           <Route exact path="/">
+            <AboutTodo />
+          </Route>
+
+          <Route exact path="/todoList">
             <TodoList />
           </Route>
 
-          <Route path="/EditTodo/:id" component={EditTodo} />
+          <Route path="/editTodo/:id" component={editTodo} />
 
-          {/* <Route path="/EditTodo/:id">
-           <EditTodo />
-          </Route> */}
+          <Route path="/deleteTodo/:id" component={deleteTodo} />
 
-          <Route path="/DeleteTodo/:id" component={DeleteTodo} />
-
-          <Route path="/CreateTodo">
+          <Route path="/isIncorrectPassword">
+            <IsIncorrectPassword />
+          </Route>
+          <Route path="/createTodo">
             <CreateTodo />
           </Route>
 
-          <Route path="/SignIn">
+          <Route path="/signIn">
             <SignIn sendLoggedInUserData={this.getLoggedInUserData} />
           </Route>
 
-          <Route path="/SignUp" >
+          <Route path="/signUp" >
             <SignUp />
           </Route>
 
+          <Route path="/userProfile" >
+            <UserProfile />
+          </Route>
         </div>
       </BrowserRouter>
     );

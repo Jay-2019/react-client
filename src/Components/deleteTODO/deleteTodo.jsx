@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default class DeleteTodo extends Component {
   state = {
@@ -22,14 +23,17 @@ export default class DeleteTodo extends Component {
   }
   render() {
     return (
-      <>
+      <div className="container-fluid ">
+        <br /> <br />
         <div className="alert alert-success" role="alert">
           <h4 className="alert-heading">Well done!</h4>
           <h1>{this.state.alertMessage}</h1>
           <hr />
-          <p className="mb-0">Go Back To The Main Menu.</p>
+          <h3 className="mb-0">
+            <Link to={"/todoList"}> Go Back To Your TODO List.</Link>
+          </h3>
         </div>
-      </>
+      </div>
     );
   }
 }

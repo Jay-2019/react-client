@@ -5,3 +5,41 @@
 .cardWidth {
   width: 18rem;
 }
+
+.welcomeLeft {
+  height: 480px;
+  padding-left: 50px;
+}
+.welcomeRight {
+  height: 550px;
+  padding-right: 50px;
+}
+
+.welcomeCenter {
+  height: 180px;
+}
+
+.myTodo {
+  color: #dc3545;
+}
+
+.toDoGivesYouFocus {
+  color: #17a2b8;
+}
+
+.fromWorkToPlay {
+  color: #17a2b8;
+}
+
+.card {
+  margin-top: 50px;
+  height: auto;
+}
+
+.cardBody {
+  width: 500px;
+}
+
+.bgImgSignIn {
+  background-color: #e9ecef;
+}

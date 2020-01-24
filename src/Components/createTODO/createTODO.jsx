@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import NavigationBar from "../navigationBar/navigationBar";
 import axios from "axios";
 
 class CreateTodo extends React.Component {
@@ -45,10 +46,12 @@ class CreateTodo extends React.Component {
         Priority: this.state.Priority
       };
 
-      axios.post("http://localhost:4000/todos/createTodo", newTodo).then(response => {
-        console.log(response.data);
-        return response.data;
-      });
+      axios
+        .post("http://localhost:4000/todos/createTodo", newTodo)
+        .then(response => {
+          console.log(response.data);
+          return response.data;
+        });
 
       this.setState({
         Description: "",
@@ -68,6 +71,7 @@ class CreateTodo extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <NavigationBar />
         {/* TO DO FORM... */}
         <br />
         <form onSubmit={this.handleSubmit}>

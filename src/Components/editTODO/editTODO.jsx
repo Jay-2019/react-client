@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import NavigationBar from "../../components/navigationBar";
 
 class EditTodo extends React.Component {
   state = {
@@ -68,12 +69,13 @@ class EditTodo extends React.Component {
       )
       .then(res => console.log(res.data));
 
-    this.props.history.push("/");
+    this.props.history.push("/todoList");
   };
 
   render() {
     return (
       <React.Fragment>
+        <NavigationBar />
         <h1 align="center">Update Todo</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">

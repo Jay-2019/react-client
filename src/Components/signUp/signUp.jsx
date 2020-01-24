@@ -3,6 +3,7 @@ import axios from "axios";
 // import style from '../style.module.css';
 import defaultImage from "../../assets/Avatar.jpg";
 import ReactAvatar from "react-avatar-editor";
+import { Redirect } from "react-router-dom";
 
 export default class SignUp extends Component {
   state = {
@@ -13,6 +14,8 @@ export default class SignUp extends Component {
     confirmPassword: "",
     termsAndConditions: false,
     isUserExist: false,
+    toSignIn: false,
+    isIncorrectPassword: false,
 
     // Avatar Properties
     profileImage: defaultImage,
@@ -80,8 +83,9 @@ export default class SignUp extends Component {
   handleSubmit = event => {
     event.preventDefault();
     if (this.state.createPassword !== this.state.confirmPassword) {
-      alert("Create & Confirm Password not Matched");
-      return;
+      window.alert("Create & Confirm Password not Matched");
+
+      // return this.setState({ isIncorrectPassword: true });
     }
 
     // Creating newUser OBject...
@@ -93,8 +97,10 @@ export default class SignUp extends Component {
       createPassword: this.state.createPassword,
       confirmPassword: this.state.confirmPassword,
       termsAndConditions: this.state.termsAndConditions,
-      isUserExist: true
+      isUserExist: true,
+      toSignIn: true
     };
+
     // send data into database
     axios
       .post("http://localhost:4000/todos/signUp", newUser)
@@ -113,11 +119,20 @@ export default class SignUp extends Component {
       termsAndConditions: false,
       profileImage: defaultImage,
       signUpDate: Date.now,
-      isUserExist: false
+      isUserExist: false,
+      toSignIn: true
     });
   };
 
   render() {
+    if (this.state.toSignIn) {
+      return <Redirect to="/signIn" />;
+    }
+
+    // if (this.isIncorrectPassword) {
+    //   return <Redirect to="/isIncorrectPassword" />;
+    // }
+
     return (
       <Fragment>
         <div className="container-fluid p-3 mb-2  text-dark">
