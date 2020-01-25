@@ -94,7 +94,7 @@ export default class SignIn extends Component {
 
   render() {
     if (this.state.isUserExist) {
-      return <Redirect to={"/userProfile"} />;
+      return <Redirect from={"/signIn"} to={"/userProfile"} />;
     }
     // if(isUserDoesNotExist){
     //   return <Redirect to={"/userProfile"} />;

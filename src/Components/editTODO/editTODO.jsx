@@ -76,7 +76,7 @@ class EditTodo extends React.Component {
     return (
       <React.Fragment>
         <NavigationBar />
-        <h1 align="center">Update Todo</h1>
+        <h1 align="center">Update TODO</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <input

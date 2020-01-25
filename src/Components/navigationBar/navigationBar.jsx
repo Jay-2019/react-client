@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/brand.png";
+import myProfileIcon from "../../assets/user-check.svg";
+import createTodo from "../../assets/file-plus.svg";
+import todoList from "../../assets/book-open.svg";
+import signOutIcon from "../../assets/log-out.svg";
+import style from "../../style/style.module.css";
 
 export default class NavigationBar extends Component {
   render() {
@@ -24,16 +29,24 @@ export default class NavigationBar extends Component {
             <h2 className="navbar-brand">TODO APPLICATION</h2>
           </Link> */}
 
-          <div className="collapse  navbar-collapse ">
+          <div className={`collapse  navbar-collapse ${style.navIcons} `}>
             <ul className="navbar-nav  mx-auto">
+              &nbsp; &nbsp;
               <li className="navbar-item">
-                <Link to="/todoList" className="nav-link">
-                  |TODO|{" "}
+                <Link to="/userProfile" className="nav-link">
+                  <img src={myProfileIcon} alt="myProfileIcon" />
                 </Link>
               </li>
+              &nbsp; &nbsp;
+              <li className="navbar-item">
+                <Link to="/todoList" className="nav-link">
+                  <img src={todoList} alt="todoList" />
+                </Link>
+              </li>
+              &nbsp; &nbsp;
               <li className="navbar-item">
                 <Link to="/createTodo" className="nav-link">
-                  |CREATE TODO|{" "}
+                  <img src={createTodo} alt="createTodo" />
                 </Link>
               </li>
               {/* <li className="navbar-item">
@@ -45,8 +58,8 @@ export default class NavigationBar extends Component {
           <div className="collapse  navbar-collapse ">
             <ul className="navbar-nav  ml-auto">
               <li className="navbar-item">
-                <Link to="/signOut" className="nav-link">
-                  SIGN OUT
+                <Link to="/" className="nav-link">
+                  <img src={signOutIcon} alt="signOutIcon" />
                 </Link>
               </li>
             </ul>

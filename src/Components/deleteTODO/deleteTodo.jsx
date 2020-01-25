@@ -14,7 +14,6 @@ export default class DeleteTodo extends Component {
         "http://localhost:4000/todos/deleteTodo/" + this.props.match.params.id
       )
       .then(response => {
-        console.log(response.message);
         this.setState({
           alertMessage: "TODO Deleted Successfully"
         });

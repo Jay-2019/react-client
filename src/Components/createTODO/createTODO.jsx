@@ -47,7 +47,10 @@ class CreateTodo extends React.Component {
       };
 
       axios
-        .post("http://localhost:4000/todos/createTodo", newTodo)
+        .post(
+          "http://localhost:4000/todos/createTodo/" + this.props._id,
+          newTodo
+        )
         .then(response => {
           console.log(response.data);
           return response.data;
@@ -60,7 +63,7 @@ class CreateTodo extends React.Component {
         Completed: "false"
       });
     }
-
+    console.log(this.props._id);
     console.log(`Form submitted:`);
     console.log(`Todo Description: ${this.state.Description}`);
     console.log(`Todo Responsible: ${this.state.Responsible}`);
@@ -72,6 +75,8 @@ class CreateTodo extends React.Component {
     return (
       <React.Fragment>
         <NavigationBar />
+
+        <h1>Create TODO</h1>
         {/* TO DO FORM... */}
         <br />
         <form onSubmit={this.handleSubmit}>
